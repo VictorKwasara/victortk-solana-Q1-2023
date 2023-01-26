@@ -7,6 +7,7 @@ publish = false
 
 [dependencies]
 solana-program = "1.14.10"
+thiserror = "1.0.38"
 
 [features]
 test-bpf = []
