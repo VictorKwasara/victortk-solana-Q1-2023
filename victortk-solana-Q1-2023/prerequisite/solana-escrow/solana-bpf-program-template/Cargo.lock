@@ -484,12 +484,14 @@ dependencies = [
 name = "bpf-program-template"
 version = "0.1.0"
 dependencies = [
+ "arrayref",
  "assert_matches",
  "solana-logger",
  "solana-program",
  "solana-program-test",
  "solana-sdk",
  "solana-validator",
+ "spl-token",
  "thiserror",
 ]
 
