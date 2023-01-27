@@ -6,7 +6,7 @@ use solana_program:: {
     pubkey::Pubkey,
     program_pack::{Pack, IsInitialized},
     sysvar::{rent::Rent,Sysvar},
-    program::invoke
+    program::{invoke, invoke_signed}
 };
 
 use spl_token::state::Account as TokenAccount;
@@ -166,16 +166,18 @@ impl Processor {
     )?;
     let pda_account = next_account_info(account_info_iter)?;
 
-let transfer_to_taker_ix = spl_token::instruction::transfer(
+    let transfer_to_taker_ix = spl_token::instruction::transfer(
     token_program.key,
     pdas_temp_token_account.key,
     takers_token_to_receive_account.key,
     &pda,
     &[&pda],
     pdas_temp_token_account_info.amount,
-)?;
-msg!("Calling the token program to transfer tokens to the taker...");
-invoke_signed(
+    )?;
+
+    msg!("Calling the token program to transfer tokens to the taker...");
+    
+    invoke_signed(
     &transfer_to_taker_ix,
     &[
         pdas_temp_token_account.clone(),
