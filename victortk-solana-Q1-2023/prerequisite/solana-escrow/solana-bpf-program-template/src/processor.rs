@@ -176,7 +176,7 @@ impl Processor {
     )?;
 
     msg!("Calling the token program to transfer tokens to the taker...");
-    
+
     invoke_signed(
     &transfer_to_taker_ix,
     &[
@@ -186,17 +186,18 @@ impl Processor {
         token_program.clone(),
     ],
     &[&[&b"escrow"[..], &[bump_seed]]],
-)?;
+   )?;
 
-let close_pdas_temp_acc_ix = spl_token::instruction::close_account(
+  let close_pdas_temp_acc_ix = spl_token::instruction::close_account(
     token_program.key,
     pdas_temp_token_account.key,
     initializers_main_account.key,
     &pda,
     &[&pda]
-)?;
-msg!("Calling the token program to close pda's temp account...");
-invoke_signed(
+  )?;
+  msg!("Calling the token program to close pda's temp account...");
+
+  invoke_signed(
     &close_pdas_temp_acc_ix,
     &[
         pdas_temp_token_account.clone(),
@@ -205,8 +206,8 @@ invoke_signed(
         token_program.clone(),
     ],
     &[&[&b"escrow"[..], &[bump_seed]]],
-)?;
+  )?;
 
-Ok(())
+  Ok(())
   }
 }
