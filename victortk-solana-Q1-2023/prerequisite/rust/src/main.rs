@@ -7,10 +7,11 @@
 // mod conditionals ;
 // mod vectors ;
 // mod loops ;
+mod cli ;
 mod enums  ;
 
 // mod pointers ;
 
 fn main() {
-    enums::run();
+    cli::run();
 }
