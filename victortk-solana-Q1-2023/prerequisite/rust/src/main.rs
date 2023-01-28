@@ -4,10 +4,11 @@
 // mod strings ;
 // mod tuples ;
 // mod arrays;
-mod conditionals ;
+// mod conditionals ;
 // mod vectors ;
-mod loops ;
+// mod loops ;
+mod pointers ;
 
 fn main() {
-    loops::run();
+    pointers::run();
 }
