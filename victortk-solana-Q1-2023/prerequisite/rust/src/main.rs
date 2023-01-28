@@ -7,11 +7,10 @@
 // mod conditionals ;
 // mod vectors ;
 // mod loops ;
-mod structs ;
-
+mod enums  ;
 
 // mod pointers ;
 
 fn main() {
-    structs::run();
+    enums::run();
 }
